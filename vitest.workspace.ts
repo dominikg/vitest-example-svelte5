@@ -4,14 +4,6 @@ export default defineWorkspace([
     {
         extends: './vite.config.ts',
         plugins:[svelteTesting()],
-        // TODO: without this block, an error happens because resolved vite config only has "ssr" environment set up
-        environments:{
-          "client": {
-              resolve:{
-                  conditions:["svelte","browser"]
-              }
-          }
-        },
         test:{
             name:"client",
             environment:'jsdom',
